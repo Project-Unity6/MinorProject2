@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ParkHub</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #ffecd2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E");
+        }
+
+        .register-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 520px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .register-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .register-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .register-subtitle {
+            color: #666;
+            font-size: 0.925rem;
+            margin-top: 0.5rem;
+        }
+
+        .form-input-styled {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #fafafa;
+        }
+
+        .form-input-styled:focus {
+            outline: none;
+            border-color: #a8edea;
+            box-shadow: 0 0 0 4px rgba(168, 237, 234, 0.2);
+            background: white;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 0.875rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .links-section {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .links-section a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-card">
+        <div class="register-header">
+            <div class="register-icon">✨</div>
+            <h1 class="register-title">Join ParkHub</h1>
+            <p class="register-subtitle">Create your account in seconds</p>
+        </div>
+
+        <div id="alert"></div>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600; color: #333;">Full Name</label>
+                <input type="text" id="name" class="form-input-styled" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600; color: #333;">Email Address</label>
+                <input type="email" id="email" class="form-input-styled" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600; color: #333;">Password</label>
+                <input type="password" id="password" class="form-input-styled" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600; color: #333;">Address (Optional)</label>
+                <input type="text" id="address" class="form-input-styled" placeholder="Your address">
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" style="font-weight: 600; color: #333;">PIN Code</label>
+                    <input type="text" id="pin_code" class="form-input-styled" placeholder="400001">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" style="font-weight: 600; color: #333;">Vehicle Number</label>
+                    <input type="text" id="vehicle_number" class="form-input-styled" placeholder="MH01AB1234">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-register">
+                Create Account →
+            </button>
+        </form>
+
+        <div class="links-section">
+            <p style="color: #666; font-size: 0.9rem;">
+                Already have an account? <a href="login.html">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = '/api';
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                address: document.getElementById('address').value || null,
+                pin_code: document.getElementById('pin_code').value || null,
+                vehicle_number: document.getElementById('vehicle_number').value || null
+            };
+
+            const alertDiv = document.getElementById('alert');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Registration failed');
+                }
+
+                localStorage.setItem('authToken', data.access_token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                alertDiv.innerHTML = `<div class="alert alert-error">${error.message}</div>`;
+            }
+        });
+    </script>
+</body>
+
+</html>
