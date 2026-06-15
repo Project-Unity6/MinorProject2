@@ -1,0 +1,9 @@
+[build]
+  # The directory where the frontend code is located
+  base = "client"
+
+  # The build command to run inside the client directory
+  command = "npm run build"
+
+  # The folder containing the built static files (relative to base)
+  publish = "dist"
