@@ -1,3 +1,5 @@
+url->https://minorfrontend.netlify.app/
+
 # 🚗 ParkHub - Smart Parking Management System (MERN Stack)
 
 Welcome to the modernized **ParkHub** application. This project has been converted from a Flask/MySQL backend to a robust, high-performance, and visually stunning **MERN stack** (MongoDB, Express.js, React, Node.js) architecture.
